@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import pokedata from '../pokedata.js';
+import PokeList from '../PokeList/PokeList.js';
 
 export default class Pokedex extends Component {
 
     state = {
         pokemon: pokedata,
-        sortBy: 'id',
+        sortBy: '',
         filter: '',
         sortOrder: 'forwards'
     }
@@ -44,7 +45,11 @@ export default class Pokedex extends Component {
         console.log(filteredPokemon);
         //set filtered array based off of sorted state and pass to pokelist as props
         return (
-            <p>Pokedex</p>
+            <div>
+                <p>SideBar</p>
+                <PokeList pokeArray = {filteredPokemon} />
+            </div>
+            
         )
     }
 }
