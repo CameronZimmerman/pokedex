@@ -1,1 +1,1 @@
-<img src = "pokedexplan.png">
+<img src = "public/pokedexplan.png">
