@@ -38,6 +38,10 @@ export default class Pokedex extends Component {
             if (sortByType === 'string') this.state.pokemon.sort((a, b) => b[this.state.sortBy].localeCompare(a[this.state.sortBy]));
             if(sortByType === 'number') this.state.pokemon.sort((a, b) => b[this.state.sortBy] - a[this.state.sortBy]);
         }
+
+        const filteredPokemon = this.state.pokemon.filter(pokemonObj => pokemonObj.pokemon.includes(this.state.filter));
+
+        console.log(filteredPokemon);
         //set filtered array based off of sorted state and pass to pokelist as props
         return (
             <p>Pokedex</p>
