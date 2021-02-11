@@ -5,9 +5,10 @@ export default class PokeItem extends Component {
         return(
             <div>
                 <img src = {this.props.pokeImage} alt = {this.props.pokemon}/>
-                <p>{this.props.pokemon}</p>
-                <p>{this.props.type}</p>
-                <p>{this.props.attack}</p>
+                <p>Pokemon: {this.props.pokemon}</p>
+                <p>Type: {this.props.type}</p>
+                <p>Weight: {this.props.weight}</p>
+                <p>Height: {this.props.height}</p>
             </div>
         )
     }
