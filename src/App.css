@@ -3,6 +3,8 @@ html, body, #root, .app {
   width: 100%;
   margin: 0;
   padding: 0;
+  background-color: #3B4CCA;
+
 }
 header {
   display: grid;
@@ -24,7 +26,6 @@ header li {
   display: flex;
   justify-content:space-around;
   flex-wrap: wrap;
-  background-color: #3B4CCA;
 
 }
 .pokeitem {
@@ -58,4 +59,9 @@ background-color: #FF0000;
 .sidebar form {
   display: flex;
   justify-content: center;
+}
+
+.description {
+  text-align: center;
+  
 }
