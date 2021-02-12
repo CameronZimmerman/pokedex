@@ -3,9 +3,10 @@ import React, { Component } from 'react'
 export default class Filter extends Component {
     render() {
         return (
-            <div>
+            <div className = "filters">
                 <p>Sort By: </p>
                 <select onChange = {this.props.handleSortBy}>
+                    <option value = "pokemon">Pokemon</option>
                     <option value = "type_1">Type</option>
                     <option value = "weight">Weight</option>
                     <option value = "height">Height</option>

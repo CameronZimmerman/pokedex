@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class PokeItem extends Component {
     render() {
         return(
-            <div>
+            <div className = "pokeitem">
                 <img src = {this.props.pokeImage} alt = {this.props.pokemon}/>
                 <p>Pokemon: {this.props.pokemon}</p>
                 <p>Type: {this.props.type}</p>

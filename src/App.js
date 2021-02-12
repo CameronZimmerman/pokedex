@@ -3,8 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
+import Header from './Header/Header.js';
 
 import './App.css';
 import Home from './Home/Home.js';
@@ -14,17 +14,8 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/pokedex">Pokedex</Link>
-              </li>
-            </ul>
-          </nav>
+        <div className = "app">
+          <Header />
 
           <Switch>
             <Route path="/pokedex">
