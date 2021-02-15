@@ -17,12 +17,6 @@ header li {
   list-style-type: none;
 }
 
-<<<<<<< Updated upstream
-.pokedex {
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-=======
 @media screen and (min-width: 400px) {
   .pokedex {
     height: 100%;
@@ -49,7 +43,6 @@ header li {
     justify-content:space-around;
     
   }
->>>>>>> Stashed changes
 }
 .pokelist {
   display: flex;
