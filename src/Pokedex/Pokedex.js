@@ -80,7 +80,7 @@ export default class Pokedex extends Component {
                     <Filter handleSortBy = {this.handleSortBy} handleSortOrder = {this.handleSortOrder}/>
                     <SearchBar handleSearch = {this.handleSearch} sortBy = {this.state.sortBy}/>
                 </section>
-                <PokeList pokeArray = {this.state.pokemon} />
+                <PokeList pokeArray = {this.state.pokemon} page = {this.state.page} next = {this.handleNextPageChange} prev = {this.handlePreviousPageChange}/>
             </div>
             
         )
