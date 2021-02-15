@@ -13,8 +13,8 @@ export default class Filter extends Component {
                 </select>
                 <p>Sort Order: </p>
                 <select onChange = {this.props.handleSortOrder}>
-                    <option value = "forwards">Forwards</option>
-                    <option value = "backwards">Backwards</option>
+                    <option value = "asc">Forwards</option>
+                    <option value = "desc">Backwards</option>
                 </select>
             </div>
         )
