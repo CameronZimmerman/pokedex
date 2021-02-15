@@ -54,7 +54,8 @@ export default class Pokedex extends Component {
     }
 
     fetchPokemon = async () => {
-        let pokeData = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.search}&sort=${this.state.sortBy}&direction=${this.state.sortOrder}page=${this.state.page}`);
+        let url = `https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.search}&sort=${this.state.sortBy}&direction=${this.state.sortOrder}&page=${this.state.page}`
+        let pokeData = await request.get(url);
         await this.setState({pokemon : pokeData.body.results});
     }
     
