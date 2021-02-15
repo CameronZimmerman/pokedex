@@ -12,16 +12,29 @@ header {
   text-align: center;
   align-items: center;
   background-color: #FFDE00;
+  padding: 0;
+  margin: 0;
 }
 header li {
   list-style-type: none;
 }
 
-.pokedex {
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
+@media screen and (min-width: 600px) {
+  .pokedex {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+  }
 }
+
+@media screen and (min-width: 900px) {
+  .pokedex {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
 .pokelist {
   justify-content:space-around;
   flex-wrap: wrap;
