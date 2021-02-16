@@ -9,7 +9,7 @@ export default class Pokedex extends Component {
     state = {
         pokemon: [],
         sortBy: 'pokemon',
-        search: 'c',
+        search: '',
         sortOrder: 'asc',
         page: 1
     }
