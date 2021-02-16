@@ -23,7 +23,8 @@ export default class Pokedex extends Component {
     handleSearch = async (e) => {
         e.preventDefault();
         await this.setState({
-            search: e.target[0].value
+            search: e.target[0].value,
+            page: 1,
         })
         await this.fetchPokemon();
 
@@ -31,14 +32,16 @@ export default class Pokedex extends Component {
     // this will set sortby to the users category choice in a dropdown
     handleSortBy = async (e) => {
         await this.setState({
-            sortBy: e.target.value
+            sortBy: e.target.value,
+            page: 1,
         })
        await this.fetchPokemon();
     }
     // this will invert search order
     handleSortOrder = async (e) => {
         await this.setState({
-            sortOrder: e.target.value
+            sortOrder: e.target.value,
+            page: 1,
         })
        await this.fetchPokemon();
     }
