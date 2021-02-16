@@ -11,7 +11,8 @@ export default class Pokedex extends Component {
         sortBy: 'pokemon',
         search: '',
         sortOrder: 'asc',
-        page: 1
+        page: 1,
+        loading: false,
     }
 
     componentDidMount() {
@@ -57,9 +58,10 @@ export default class Pokedex extends Component {
     }
 
     fetchPokemon = async () => {
+        this.setState({loading:true})
         let url = `https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.search}&sort=${this.state.sortBy}&direction=${this.state.sortOrder}&page=${this.state.page}`
         let pokeData = await request.get(url);
-        await this.setState({pokemon : pokeData.body.results});
+        await this.setState({pokemon : pokeData.body.results, loading: false});
     }
     
     render() {
@@ -84,7 +86,7 @@ export default class Pokedex extends Component {
                     <Filter handleSortBy = {this.handleSortBy} handleSortOrder = {this.handleSortOrder}/>
                     <SearchBar handleSearch = {this.handleSearch} sortBy = {this.state.sortBy}/>
                 </section>
-                <PokeList pokeArray = {this.state.pokemon} page = {this.state.page} next = {this.handleNextPageChange} prev = {this.handlePreviousPageChange}/>
+                <PokeList pokeArray = {this.state.pokemon} page = {this.state.page} next = {this.handleNextPageChange} prev = {this.handlePreviousPageChange} loading = {this.state.loading}/>
             </div>
             
         )
