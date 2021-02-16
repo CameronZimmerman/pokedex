@@ -9,9 +9,10 @@ export default class Pokedex extends Component {
     state = {
         pokemon: [],
         sortBy: 'pokemon',
-        search: 'c',
+        search: '',
         sortOrder: 'asc',
-        page: 1
+        page: 1,
+        loading: false,
     }
 
     componentDidMount() {
@@ -23,7 +24,8 @@ export default class Pokedex extends Component {
     handleSearch = async (e) => {
         e.preventDefault();
         await this.setState({
-            search: e.target[0].value
+            search: e.target[0].value,
+            page: 1,
         })
         await this.fetchPokemon();
 
@@ -31,14 +33,16 @@ export default class Pokedex extends Component {
     // this will set sortby to the users category choice in a dropdown
     handleSortBy = async (e) => {
         await this.setState({
-            sortBy: e.target.value
+            sortBy: e.target.value,
+            page: 1,
         })
        await this.fetchPokemon();
     }
     // this will invert search order
     handleSortOrder = async (e) => {
         await this.setState({
-            sortOrder: e.target.value
+            sortOrder: e.target.value,
+            page: 1,
         })
        await this.fetchPokemon();
     }
@@ -54,9 +58,10 @@ export default class Pokedex extends Component {
     }
 
     fetchPokemon = async () => {
+        this.setState({loading:true})
         let url = `https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.search}&sort=${this.state.sortBy}&direction=${this.state.sortOrder}&page=${this.state.page}`
         let pokeData = await request.get(url);
-        await this.setState({pokemon : pokeData.body.results});
+        await this.setState({pokemon : pokeData.body.results, loading: false});
     }
     
     render() {
@@ -81,7 +86,7 @@ export default class Pokedex extends Component {
                     <Filter handleSortBy = {this.handleSortBy} handleSortOrder = {this.handleSortOrder}/>
                     <SearchBar handleSearch = {this.handleSearch} sortBy = {this.state.sortBy}/>
                 </section>
-                <PokeList pokeArray = {this.state.pokemon} page = {this.state.page} next = {this.handleNextPageChange} prev = {this.handlePreviousPageChange}/>
+                <PokeList pokeArray = {this.state.pokemon} page = {this.state.page} next = {this.handleNextPageChange} prev = {this.handlePreviousPageChange} loading = {this.state.loading}/>
             </div>
             
         )
