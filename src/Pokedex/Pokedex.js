@@ -13,7 +13,7 @@ export default class Pokedex extends Component {
         sortOrder: 'asc',
         page: 1,
         lastPage: 0,
-        perPage: 20,
+        perPage: 50,
         loading: false,
     }
 

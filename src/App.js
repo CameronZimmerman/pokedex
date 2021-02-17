@@ -9,6 +9,7 @@ import Header from './Header/Header.js';
 import './App.css';
 import Home from './Home/Home.js';
 import Pokedex from './Pokedex/Pokedex.js';
+import Details from './Details/Details.js';
 
 export default class App extends Component {
   render() {
@@ -18,11 +19,23 @@ export default class App extends Component {
           <Header />
 
           <Switch>
-            <Route path="/pokedex">
-              <Pokedex />
+            <Route 
+                path="/pokedex"
+                exact
+                render = {(routerProps) => <Pokedex {...routerProps}/> }>
+              
             </Route>
-            <Route path="/">
-              <Home />
+            <Route 
+                path="/home"
+                exact
+                render = {(routerProps) => <Home {...routerProps}/> }>
+              
+            </Route>
+            <Route 
+                path="/pokedex/:pokemonName"
+                exact
+                render = {(routerProps) => <Details {...routerProps}/> }>
+              
             </Route>
           </Switch>
         </div>
