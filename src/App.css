@@ -67,6 +67,14 @@ header li {
   height: 150px;
 }
 
+a :hover :not(p){
+  transform: scale(1.25);
+}
+
+a :not(p) {
+  transition: transform 0.25s;
+}
+
 .sidebar {
   background-color: #FF0000;
   min-height: 100vh;
@@ -98,4 +106,32 @@ header li {
 .description {
   text-align: center;
   
+}
+.details {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  background-color: #FFDE00;
+  margin: 50px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+
+}
+.detail-image img{
+  width: 40vw;
+}
+.detail-information {
+  background-color: #FF0000;
+  border-radius: 20px;
+  text-align: center;
+  width: 100%;
+}
+.detail-information div {
+  width: 100%;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+
+}
+.detail-information p {
+  border-bottom: 3px solid #3B4CCA;
 }

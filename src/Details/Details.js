@@ -20,11 +20,11 @@ export default class Details extends Component {
     }
     render() {
         return (
-            <div>
-                <section>
+            <div className = "details">
+                <section className = "detail-image">
                     <img src = {this.state.apiPokemon.url_image} alt = {this.state.apiPokemon.pokemon}/>
                 </section>
-                <section>
+                <section className = "detail-information">
                     <p>Name: {this.state.apiPokemon.pokemon}</p>
                     <p>Generation : {this.state.apiPokemon.generation_id}</p>
                     <p>Height: {this.state.apiPokemon.height} feet </p>
@@ -36,8 +36,8 @@ export default class Details extends Component {
                     <p>Speed: {this.state.apiPokemon.speed} mph</p>
                     <p>Ability 1: {this.state.apiPokemon.ability_1}</p>
                     <p>Ability 2: {this.state.apiPokemon.ability_2}</p>
-                    <p>Ability hidden: {this.state.apiPokemon.ability_hidden}</p>
-                    <span>Color: </span><div style ={{width: "50px", height: "50px", backgroundColor: this.state.apiPokemon.color_1 }}></div>
+                    <p>Hidden ability: {this.state.apiPokemon.ability_hidden}</p>
+                    <div style ={{backgroundColor: this.state.apiPokemon.color_1 }}>Color</div>
                 </section>
             </div>
         )
