@@ -13,9 +13,9 @@ export default class PokeList extends Component {
                     
                 </div>
                 <div className = "page-buttons">
-                    {this.props.page !== 1 && <button onClick = {this.props.prev}>Last Page</button>}
-                    {this.props.pokeArray.length === 20 && this.props.page}
-                    {this.props.pokeArray.length === 20 && <button onClick = {this.props.next}>NextPage</button>}
+                    <button disabled = {!this.props.page !== 1} onClick = {this.props.prev}>Last Page</button>
+                    {this.props.lastPage > this.props.page && this.props.page}
+                    <button disabled = {!this.props.lastPage > this.props.page} onClick = {this.props.next}>NextPage</button>
                 </div>
             </section>
         )
