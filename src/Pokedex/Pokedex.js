@@ -5,17 +5,19 @@ import Filter from '../Filter/Filter.js';
 import request from 'superagent';
 
 export default class Pokedex extends Component {
-
     state = {
         pokemon: [],
         sortBy: 'pokemon',
         search: '',
         sortOrder: 'asc',
         page: 1,
+        lastPage: 0,
+        perPage: 50,
         loading: false,
     }
 
     componentDidMount() {
+        console.log(this.props);
         this.fetchPokemon();
         console.log(this.state.pokemon);
     }
@@ -59,9 +61,9 @@ export default class Pokedex extends Component {
 
     fetchPokemon = async () => {
         this.setState({loading:true})
-        let url = `https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.search}&sort=${this.state.sortBy}&direction=${this.state.sortOrder}&page=${this.state.page}`
+        let url = `https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.search}&sort=${this.state.sortBy}&direction=${this.state.sortOrder}&page=${this.state.page}&perPage=${this.state.perPage}`
         let pokeData = await request.get(url);
-        await this.setState({pokemon : pokeData.body.results, loading: false});
+        await this.setState({pokemon : pokeData.body.results, loading: false, lastPage: Math.ceil(pokeData.body.count / this.state.perPage)});
     }
     
     render() {
@@ -86,7 +88,7 @@ export default class Pokedex extends Component {
                     <Filter handleSortBy = {this.handleSortBy} handleSortOrder = {this.handleSortOrder}/>
                     <SearchBar handleSearch = {this.handleSearch} sortBy = {this.state.sortBy}/>
                 </section>
-                <PokeList pokeArray = {this.state.pokemon} page = {this.state.page} next = {this.handleNextPageChange} prev = {this.handlePreviousPageChange} loading = {this.state.loading}/>
+                <PokeList pokeArray = {this.state.pokemon} page = {this.state.page} next = {this.handleNextPageChange} prev = {this.handlePreviousPageChange} loading = {this.state.loading} lastPage = {this.state.lastPage}/>
             </div>
             
         )

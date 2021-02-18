@@ -4,7 +4,6 @@ html, body, #root, .app {
   margin: 0;
   padding: 0;
   background-color: #3B4CCA;
-
 }
 header {
   display: grid;
@@ -44,9 +43,16 @@ header li {
     
   }
 }
+
+.spinner {
+  display: flex;
+  justify-content: center;
+}
+
 .pokedex {
   min-height: 100vh;
 }
+
 .pokelist {
   display: flex;
   flex-direction: column;
@@ -66,6 +72,14 @@ header li {
 .pokeitem img {
   width: 150px; 
   height: 150px;
+}
+
+a :hover :not(p){
+  transform: scale(1.25);
+}
+
+a :not(p) {
+  transition: transform 0.25s;
 }
 
 .sidebar {
@@ -99,4 +113,32 @@ header li {
 .description {
   text-align: center;
   
+}
+.details {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  background-color: #FFDE00;
+  margin: 50px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+
+}
+.detail-image img{
+  width: 40vw;
+}
+.detail-information {
+  background-color: #FF0000;
+  border-radius: 20px;
+  text-align: center;
+  width: 100%;
+}
+.detail-information div {
+  width: 100%;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+
+}
+.detail-information p {
+  border-bottom: 3px solid #3B4CCA;
 }
