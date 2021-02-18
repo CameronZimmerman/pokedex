@@ -5,7 +5,6 @@ import Filter from '../Filter/Filter.js';
 import request from 'superagent';
 
 export default class Pokedex extends Component {
-
     state = {
         pokemon: [],
         sortBy: 'pokemon',
@@ -18,6 +17,7 @@ export default class Pokedex extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props);
         this.fetchPokemon();
         console.log(this.state.pokemon);
     }
