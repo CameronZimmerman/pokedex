@@ -43,9 +43,16 @@ header li {
     
   }
 }
+
+.spinner {
+  display: flex;
+  justify-content: center;
+}
+
 .pokedex {
   min-height: 100vh;
 }
+
 .pokelist {
   display: flex;
   flex-direction: column;
